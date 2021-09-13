@@ -1,4 +1,5 @@
 # Project-Deep-ART
+<p align="center"><img src="https://github.com/frason88/Project-Deep-ART/blob/main/demo.gif?raw=true" width="400px" height="200px"/></p>
 
 ## Introduction:
 The creation of art is among the highest forms of expression of the human mind and imagination. The ability to communicate imagination sets us apart from all other beings. 
