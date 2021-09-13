@@ -1,0 +1,229 @@
+<head>
+	<title>Frason Francis | AIArtist : Find Artist from Arts and Paintings</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="link">
+        <p class="about">About deepART</p>
+        <p class="ai">ExpressiveAI</p>
+    </div>
+    <div class="container">
+        <div>
+            <div>
+			<h2 class="title">Ever wondered who made a painting you just came across on the internet?</h2>
+            <img class="illustration1" src="../images/landing_page_illustration.png" alt="">
+            <h4 class="text_white">Let us help.</h4>
+            <h5 class="text_white_small">Simply upload or paste the url of the image and let deepART get your artist.</h5>
+				<!-- <div style="padding-top: 10px; padding-right: 10px; padding-bottom: 10px; padding-left: 10px">
+					<b><p>Who am I?</p></b><br>
+
+					I am an AI bot, you can call me <i>DeepArtist</i>. Thanks to Deep Learning and a carefully designed Convolution Neural Network, I have thoroughly studied few paintings of the following legends, and understood their underlying styles.<br><br>
+					<ul>
+						<li>Vincent van Gogh: (1853 - 1890), Dutch, [Post-Impressionism]</li>
+						<li>Edgar Degas: (1834 - 1917), French, [Impressionism]</li>
+						<li>Pablo Picasso: (1881 - 1973), Spanish, [Cubism]</li>
+						<li>Pierre-Auguste Renoir: (1841 - 1919), French, [Impressionism]</li>
+						<li>Albrecht Durer: (1471 - 1528), German, [Northern Renaissance]</li>
+						<li>Paul Gauguin: (1848 - 1903), French, [Symbolism,Post-Impressionism]</li>
+						<li>Francisco Goya: (1746 - 1828), Spanish, [Romanticism]</li>
+						<li>Rembrandt: (1606 - 1669), Dutch, [Baroque]</li>
+						<li>Alfred Sisley: (1839 - 1899), French,British, [Impressionism]</li>
+						<li>Titian: (1488 - 1576), Italian, [High Renaissance,Mannerism]</li>
+						<li>Marc Chagall: (1887 - 1985), French,Jewish,Belarusian, [Primitivism]</li>
+					</ul>
+					When shown a painting which I have never seen earlier, I can guess the artist with <b>~87% accuracy</b>, by virtue of my intelligence. I'm studying more artists and will be able to identify their art in near future! Thank you, have fun &#128526;
+				</div>
+				<div>
+					<b>Notes from the developer:</b> For any feedback, comment or suggestion, or just to say Hi, please drop a line anytime to <a href="mailto:ffkalapurackal@gmail.com">ffkalapurackal@gmail.com</a>. For other Data Science and Machine Learning projects I'm working on, please visit <a href="https://github.com/frason88">my home page</a>.
+				<div> -->
+            </div>
+        </div>
+    </div>
+    <div class="container2 output">
+        <img class="item" src="../images/blank.png" alt="">
+        <div class="item test1" id="api_output_1"></div><div class="item" id="api_output_2 test1"></div><br><div class="item" id="api_output_3"></div>
+    </div>
+    <div class="container3">
+        <img src="../images/expressiveAI.png" alt="" class="aiImg">
+        <div class="text">
+            <p>Have you ever wondered if an AI bot can . . . </p>
+            <p>talk to each other?</p>
+            <p>tell a story?</p>
+            <p>write a poem?</p>
+        </div>
+    </div>
+    <div class="input1">
+        <input class="input2" type="text" id="input" name="input" placeholder="Enter image url of jpeg or png file here"/>
+        <button id="btn" class="input3"> <img class="cloud" src="../images/upload-cloud.png" alt=""> Upload</button>
+        <!-- <button id="btn_reset">Reset</button> -->
+    </div>
+    <div class="info">
+        <img class="info_img" src="../images/i.png" alt="" width="40px">
+    </div>
+    <div class="info_container">
+        <div class="info1 one">
+            <img class="info_img1" src="../images/undraw_Chat_bot_re_e2gj 1.png" alt="">
+            <div class="info1_test">
+                <h4>Hello! I am DeepArt,</h4>
+                <p>I’m an AI bot.</p>
+                <p>I can identify the artist of a painting from the images of the painting you upload.</p>
+            </div>
+            <button class="info1_btn">Learn More</button>
+        </div>
+        <div class="info1 two">
+            <img class="info_img1 img2" src="../images/undraw_stars_re_6je7 1.png" alt="">
+            <div class="info1_test text2">
+                <h4>Curious how I work?</h4>
+                <p>Thanks to Deep Learning and a carefully designed Convolution Neural Network,</p>
+                <p>I have  learnt to recognise the visual style of a few master artists from different eras of art. </p>
+                <p>When shown a painting which I have never seen earlier,
+                    I can guess the artist with ~87% accuracy. </p>
+            </div>
+            <button class="info1_btn btn2">Next</button>
+        </div>
+        <div class="info1 three">
+            <div class="info1_test text3">
+                <h4>Here are the artists I currently recognize : </h4>
+                <p>Albrecht Durer: (1471 - 1528), German, [Northern Renaissance]</p>
+                <p>Alfred Sisley: (1839 - 1899), French,British, [Impressionism]</p>
+                <p>Edgar Degas: (1834 - 1917), French, [Impressionism]</p>
+                <p>Francisco Goya: (1746 - 1828), Spanish, [Romanticism]</p>
+                <p>Marc Chagall: (1887 - 1985), French,Jewish,Belarusian, [Primitivism]</p>
+                <p>Pablo Picasso: (1881 - 1973), Spanish, [Cubism]</p>
+                <p>Paul Gauguin: (1848 - 1903), French, [Symbolism,Post-Impressionism]</p>
+                <p>Pierre-Auguste Renoir: (1841 - 1919), French, [Impressionism]</p>
+                <p>Rembrandt: (1606 - 1669), Dutch, [Baroque]</p>
+                <p>Titian: (1488 - 1576), Italian, [High Renaissance,Mannerism]</p>
+                <p>Vincent van Gogh: (1853 - 1890), Dutch, [Post-Impressionism]</p>
+                <p>I'm learning about more artists and will be able to identify their art in near future!</p>
+                <h6>Thank you and have fun 😎</h6>
+            </div>
+            <button class="info1_btn btn3">Close</button>
+        </div>
+        <div class="arrow_r"></div>
+        <div class="close">x</div>
+    </div>
+</body>
+
+
+
+<script type="text/javascript">
+    function api_call(input) {
+        $.ajax({
+            url: "",
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(input),
+            success: function( data, jQxhr ){
+				html_artist = "This masterpiece was most likely painted by <b>" + data.artist + "</b>,"
+				html_probability = "and I am <b>" + data.probability + "</b> sure about my guess &#128522"
+				html_img = "<img src=\"" + input + "\" height=\"300px\" width=\"300px\">"
+				console.log(html_img)
+                $("#api_output_1").html(html_artist);
+				$("#api_output_2").html(html_probability);
+				$("#api_output_3").html(html_img);
+                $("#input").val("");
+            },
+            error: function( jqXhr, errorThrown ){
+                $("#api_output_1").html( "Hmm.. Seems like DeepART doesn’t recognize this artist. Maybe try another image?" );
+                console.log( errorThrown );
+            },
+            timeout: 10000
+        });
+    }
+    let output = document.querySelector('.output')
+    let home = document.querySelector('.container')
+    $( document ).ready(function() {
+        // request when clicking on the button
+        $('#btn').click(function() {
+            output.style.display = "block";
+            home.style.display = "none";
+            // get the input data
+            var input = $("#input").val();
+            api_call(input);
+            input = "";
+        });
+		// reset everything
+        $('#btn_reset').click(function() {
+            // get the input data
+            $("#input").val("");
+			$("#api_output_1").html("");
+			$("#api_output_2").html("");
+			$("#api_output_3").html("");
+        });
+    });
+
+    let pagenum = 0;
+
+    let infoBtn = document.querySelector('.info_img');
+    let infoP = document.querySelector('.info_container');
+    let closeBtn = document.querySelector('.close')
+    let closeBtn3 = document.querySelector('.btn3')
+
+    let rightBtn = document.querySelector('.arrow_r')
+    let infoPages = document.querySelectorAll('.info1')
+
+
+    infoBtn.addEventListener('click', function(){
+        infoP.style.display == "block" ? infoP.style.display = "none" : infoP.style.display = "block"
+        if(infoP.style.display == "block"){
+            for(var i = 0; i < infoPages.length; i++){
+                infoPages[i].style.display = "none";
+            }
+            infoPages[0].style.display = "block";
+            pagenum = 0;
+            rightBtn.style.display = "block"
+        }
+    })
+    closeBtn.addEventListener('click', function(){
+        infoP.style.display = "none"
+    })
+    closeBtn3.addEventListener('click', function(){
+        infoP.style.display = "none"
+    })
+    //info page
+    rightBtn.addEventListener('click',function(){
+        pagenum++;
+        if(pagenum<3){
+            for(var i = 0; i < infoPages.length; i++){
+                infoPages[i].style.display = "none";
+            }
+        }
+        if(pagenum==2){
+            rightBtn.style.display = "none"
+        }
+        infoPages[pagenum].style.display = "block";
+    })
+
+    //input change position
+    let inputbtn = document.querySelector('.input3')
+    let input1 = document.querySelector('.input1');
+    inputbtn.addEventListener('click',function(){
+        input1.style.left = "32%";
+    })
+
+    //expressiveAI
+    let expressiveAIBtn = document.querySelector('.ai');
+    let expressiveAI = document.querySelector('.container3');
+    expressiveAIBtn.addEventListener('click', function(){
+        expressiveAI.style.display = "block"
+        home.style.display = "none"
+        input1.style.display = "none"
+    })
+    let about = document.querySelector('.about');
+    about.addEventListener('click', function(){
+        infoP.style.display == "block" ? infoP.style.display = "none" : infoP.style.display = "block"
+        if(infoP.style.display == "block"){
+            for(var i = 0; i < infoPages.length; i++){
+                infoPages[i].style.display = "none";
+            }
+            infoPages[0].style.display = "block";
+            pagenum = 0;
+            rightBtn.style.display = "block"
+        }
+    })
+</script>

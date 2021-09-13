@@ -1,0 +1,7 @@
+numpy~=1.19.5
+tensorflow-cpu
+imageio~=2.9.0
+flask~=2.0.1
+gunicorn
+flask_cors
+Pillow~=8.3.1

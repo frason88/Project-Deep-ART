@@ -1,0 +1,239 @@
+<head>
+	<title>Team-DeepART | DeepArtist : Find Artist from Arts and Paintings</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+    <div class="contain">
+        <div class="link">
+            <p class="home">Home</p>
+            <p class="about">About deepART</p>
+            <p class="ai">Gallery</p>
+        </div>
+        <div class="container">
+            <div>
+                <div>
+                <div class="left">
+                    <h2 class="title">Ever wondered who made a painting you just came across on the internet?</h2>
+                    <h4 class="text_white sub1">Let us help.</h4>
+                    <h5 class="text_white sub2">Simply upload or paste the url of the image and let deepART get your artist.</h5>
+                </div>
+                <div class="righ">
+                    <img class="illustration1" src="../static/landing_page_illustration.png" alt="">
+                </div>
+                </div>
+            </div>
+        </div>
+        <div class="input1">
+            <input class="input2" type="text" id="input" name="input" placeholder="Enter image url of jpeg or png file here"/>
+            <button id="btn" class="input3"> <img class="cloud" src="../static/upload-cloud.png" alt=""> Upload</button>
+            <!-- <button id="btn_reset">Reset</button> -->
+        </div>
+        <div class="info_container">
+            <div class="info1 one">
+                <img class="info_img1" src="../static/undraw_Chat_bot_re_e2gj 1.png" alt="">
+                <div class="info1_test">
+                    <h4>Hello! I am DeepArt,</h4>
+                    <p>I’m an AI bot.</p>
+                    <p>I can identify the artist of a painting from the images of the painting you upload.</p>
+                </div>
+                <button onclick="window.location.href='https://colab.research.google.com/drive/1WV6wFdaMOJpa9LOS-Lk456uWNFwmdey4?usp=sharing';" class="info1_btn">Learn More</button>
+            </div>
+            <div class="info1 two">
+                <img class="info_img1 img2" src="../static/undraw_stars_re_6je7 1.png" alt="">
+                <div class="info1_test text2">
+                    <h4>Curious how I work?</h4>
+                    <p>Thanks to Deep Learning and a carefully designed Convolution Neural Network,</p>
+                    <p>I have learnt to recognise the visual style of a few master artists from different eras of art. </p>
+                    <p>When shown a painting which I have never seen earlier,
+                        I can guess the artist with ~87% accuracy. </p>
+                </div>
+
+            </div>
+            <div class="info1 three">
+                <div class="info1_test text3">
+                    <h4>Here are the artists I currently recognize : </h4>
+                    <p>Albrecht Durer: (1471 - 1528), German, [Northern Renaissance]</p>
+                    <p>Alfred Sisley: (1839 - 1899), French,British, [Impressionism]</p>
+                    <p>Edgar Degas: (1834 - 1917), French, [Impressionism]</p>
+                    <p>Francisco Goya: (1746 - 1828), Spanish, [Romanticism]</p>
+                    <p>Marc Chagall: (1887 - 1985), French,Jewish,Belarusian, [Primitivism]</p>
+                    <p>Pablo Picasso: (1881 - 1973), Spanish, [Cubism]</p>
+                    <p>Paul Gauguin: (1848 - 1903), French, [Symbolism,Post-Impressionism]</p>
+                    <p>Pierre-Auguste Renoir: (1841 - 1919), French, [Impressionism]</p>
+                    <p>Rembrandt: (1606 - 1669), Dutch, [Baroque]</p>
+                    <p>Titian: (1488 - 1576), Italian, [High Renaissance,Mannerism]</p>
+                    <p>Vincent van Gogh: (1853 - 1890), Dutch, [Post-Impressionism]</p>
+                    <p>I'm learning about more artists and will be able to identify their art in near future!</p>
+                    <h6>Thank you and have fun 😎</h6>
+                </div>
+            </div>
+            <div class="arrow_r"></div>
+            <div class="arrow_l"></div>
+            <div class="close">x</div>
+        </div>
+        <div class="container2 output">
+            <div class="item test1" id="api_output_1"></div><div class="item" id="api_output_2 test1"></div><br><div class="item" id="api_output_3"></div>
+        </div>
+        <div class="container3">
+
+            <a href = "https://console.echoar.xyz/webar?key=odd-butterfly-1790&entry=6870315e-d174-4dc4-bd01-afc0bc0c3342"><img src="../static/expressiveAI.png" alt="" class="aiImg"></a>
+            <div class="text">
+                <p align="justify">The AR deepArt Museum embarks on the theme of practical education and comprises an AR museum. As the deadly Covid-19 pandemic swept across the world,
+                    it induced a paranormal amount of fear, anxiety and depression in people. But the world also starts to see a surge in the usage of new technology. New ways of education came forward. But with this, the real-life practical experience came to decline.
+                    People started feeling boredom seeing 2-D images and text.
+                    Educational trips to museums and other destinations came to halt.
+                    AR deepArt Museum is a small step to curb this problem as it provides the user with a virtual 3-D museum in their real-time environment containing 3-D models of various artist domains to experience.</p>
+            </div>
+        </div>
+        <div class="info">
+            <img class="info_img" src="../static/i.png" alt="" width="40px">
+        </div>
+    </div>
+</body>
+
+<script type="text/javascript">
+    function api_call(input) {
+        $.ajax({
+            url: "https://find-artist.herokuapp.com/find_artist",
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(input),
+            success: function( data, jQxhr ){
+				html_artist = "This masterpiece was most likely painted by <b>" + data.artist + "</b>,"
+				html_probability = "and I am <b>" + data.probability + "</b> sure about my guess &#128522"
+				html_img = "<img src=\"" + input + "\" height=\"300px\" width=\"300px\">"
+				console.log(html_img)
+                $("#api_output_1").html(html_artist);
+				$("#api_output_2").html(html_probability);
+				$("#api_output_3").html(html_img);
+                $("#input").val("");
+            },
+            error: function( jqXhr, errorThrown ){
+                $("#api_output_1").html( "Hmm.. Seems like DeepART doesn’t recognize this artist. Maybe try another image?" );
+                console.log( errorThrown );
+            },
+            timeout: 10000
+        });
+    }
+    let output = document.querySelector('.output')
+    let home = document.querySelector('.container')
+    $( document ).ready(function() {
+        // request when clicking on the button
+        $('#btn').click(function() {
+            output.style.display = "block";
+            home.style.display = "none";
+            // get the input data
+            var input = $("#input").val();
+            api_call(input);
+            input = "";
+        });
+		// reset everything
+        $('#btn_reset').click(function() {
+            // get the input data
+            $("#input").val("");
+			$("#api_output_1").html("");
+			$("#api_output_2").html("");
+			$("#api_output_3").html("");
+        });
+    });
+
+    let pagenum = 0;
+
+    let infoBtn = document.querySelector('.info_img');
+    let infoP = document.querySelector('.info_container');
+    let closeBtn = document.querySelector('.close')
+
+    let rightBtn = document.querySelector('.arrow_r')
+    let infoPages = document.querySelectorAll('.info1')
+
+    let leftBtn = document.querySelector('.arrow_l')
+
+
+
+    infoBtn.addEventListener('click', function(){
+        infoP.style.display == "block" ? infoP.style.display = "none" : infoP.style.display = "block"
+        if(infoP.style.display == "block"){
+            for(var i = 0; i < infoPages.length; i++){
+                infoPages[i].style.display = "none";
+            }
+            infoPages[0].style.display = "block";
+            pagenum = 0;
+            rightBtn.style.display = "block"
+            leftBtn.style.display = "none"; //////////////////////////////
+
+        }
+    })
+    closeBtn.addEventListener('click', function(){
+        infoP.style.display = "none"
+    })
+    //info page
+    rightBtn.addEventListener('click',function(){
+        pagenum++;
+        if(pagenum<3){
+            for(var i = 0; i < infoPages.length; i++){
+                infoPages[i].style.display = "none";
+            }
+        }
+        leftBtn.style.display = "block"; ////////////////////////////////
+        if(pagenum==2){
+            rightBtn.style.display = "none"
+        }
+        infoPages[pagenum].style.display = "block";
+    })
+        leftBtn.addEventListener('click',function(){
+        pagenum--;
+        rightBtn.style.display = "block";
+        if(pagenum>=0){
+            for(var i = 0; i < infoPages.length; i++){
+                infoPages[i].style.display = "none";
+            }
+        }
+        if(pagenum==0){
+            leftBtn.style.display = "none"
+        }
+        infoPages[pagenum].style.display = "block";
+    })
+
+    //input change position
+    let inputbtn = document.querySelector('.input3')
+    let input1 = document.querySelector('.input1');
+    inputbtn.addEventListener('click',function(){
+        input1.style.marginLeft = "28%";
+    })
+
+    //expressiveAI
+    let expressiveAIBtn = document.querySelector('.ai');
+    let expressiveAI = document.querySelector('.container3');
+    expressiveAIBtn.addEventListener('click', function(){
+        expressiveAI.style.display = "block"
+        home.style.display = "none"
+        input1.style.display = "none"
+        output.style.display = "none"
+    })
+    let about = document.querySelector('.about');
+    about.addEventListener('click', function(){
+        infoP.style.display == "block" ? infoP.style.display = "none" : infoP.style.display = "block"
+        if(infoP.style.display == "block"){
+            for(var i = 0; i < infoPages.length; i++){
+                infoPages[i].style.display = "none";
+            }
+            infoPages[0].style.display = "block";
+            pagenum = 0;
+            rightBtn.style.display = "block"
+        }
+    })
+    let homePg = document.querySelector('.home');
+    homePg.addEventListener('click', function(){
+        expressiveAI.style.display = "none"
+        output.style.display = "none";
+        home.style.display = "block"
+        input1.style.display = "block"
+        input1.style.marginTop = "38%"
+        input1.style.marginLeft = "50%"
+    })
+</script>
+
